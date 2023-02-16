@@ -1,2 +1,1 @@
-const colors = require('colors');
-console.log("hi".yellow);
+console.log('hi bolo');
