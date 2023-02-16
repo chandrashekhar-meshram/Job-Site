@@ -13,3 +13,4 @@ if(input[2] == 'add'){
 
 
 // command - node index.js apple.txt "this is apple"
+//argv = argument vactor
