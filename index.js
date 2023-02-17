@@ -1,34 +1,17 @@
-//create file
-const fs = require('fs');
-const path = require('path');
-const dirPath = path.join(__dirname, 'crud');
-const filePath = `${dirPath}/apple.txt`;
+const { resolve } = require("path");
 
-//fs.writeFileSync(filePath, 'this is curd file');
+let a = 20;
+let b = 0;
 
-// fs.readFile(filePath, 'utf8', (err, item) => {
-//   console.log(item);
-// });
+let waitingData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(30);
+  }, 2000);
+});
 
-//o/p - this is curd file
+waitingData.then((data) => {
+  b = data;
+  console.log(a+b);
+});
 
-//update file
-// fs.appendFile(filePath, ' and file name is apple.txt', (err) => {
-//   if(!err) {
-//     console.log("file is updated");
-//   }
-// })
-
-// op - file is updated with text added in apple.txt
-
-// Rename
-// fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
-//   if(!err) {
-//     console.log("File name changed");
-//   }
-// })
-
-// op - File name changed, now file name is fruit.txt
-
-// delete file
-fs.unlinkSync(`${dirPath}/fruit.txt`);
+//we can use async await here
