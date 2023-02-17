@@ -12,4 +12,8 @@ app.get('/about', (req, res) => {
   res.send('Hi, this is About Page.');
 });
 
+app.get('/help', (req, res) => {
+  res.send('Hi, this Help page.');
+});
+
 app.listen(5000);
