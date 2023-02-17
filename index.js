@@ -14,4 +14,6 @@ waitingData.then((data) => {
   console.log(a+b);
 });
 
+//op - 50
+
 //we can use async await here
