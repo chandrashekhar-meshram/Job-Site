@@ -5,7 +5,10 @@ const express = require('express');
 const app = express();
 
 app.get('', (req, res) => {
-  res.send('This is Home page');
+  console.log("data from browser => ", req.query.name);
+  //https://nodejspractice-tnrd--5000.local-credentialless.webcontainer.io/?name=shekhar
+  //op - data from browser => shekhar   
+  res.send('Welcome ', req.query.name);
 });
 
 app.get('/about', (req, res) => {
@@ -13,7 +16,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/help', (req, res) => {
-  res.send('Hi, this Help page.');
+  res.send('Welcome, this Help page.');
 });
 
 app.listen(5000);
