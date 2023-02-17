@@ -5,10 +5,27 @@ const express = require('express');
 const app = express();
 
 app.get('', (req, res) => {
-  console.log("data from browser => ", req.query.name);
-  //https://nodejspractice-tnrd--5000.local-credentialless.webcontainer.io/?name=shekhar
-  //op - data from browser => shekhar   
-  res.send('Welcome ' + req.query.name);
+  res.send('<h1>This is Home page</h1>');
+});
+
+app.get('/about', (req, res) => {
+  res.send(`
+    <input placeholder='User Name' />
+    <button>Click Me</button>
+  `);
+});
+
+app.get('/help', (req, res) => {
+  res.send([
+    {
+      name: 'shekhar',
+      email: 'shekhar@test.com',
+    },
+    {
+      name: 'sam',
+      email: 'sam@test.com',
+    },
+  ]);
 });
 
 app.listen(5000);
