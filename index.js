@@ -8,15 +8,7 @@ app.get('', (req, res) => {
   console.log("data from browser => ", req.query.name);
   //https://nodejspractice-tnrd--5000.local-credentialless.webcontainer.io/?name=shekhar
   //op - data from browser => shekhar   
-  res.send('Welcome ', req.query.name);
-});
-
-app.get('/about', (req, res) => {
-  res.send('Hi, this is About Page.');
-});
-
-app.get('/help', (req, res) => {
-  res.send('Welcome, this Help page.');
+  res.send('Welcome ' + req.query.name);
 });
 
 app.listen(5000);
