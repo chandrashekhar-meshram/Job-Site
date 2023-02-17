@@ -1,19 +1,15 @@
-const { resolve } = require("path");
+// how to make route(get type) using express js
+// steps 1. import express, 2.execute express 3. make route with response, 4. make server
 
-let a = 20;
-let b = 0;
+const express = require('express');
+const app = express();
 
-let waitingData = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(30);
-  }, 2000);
+app.get('', (req, res) => {
+  res.send('This is Home page');
 });
 
-waitingData.then((data) => {
-  b = data;
-  console.log(a+b);
+app.get('/about', (req, res) => {
+  res.send('Hi, this is About Page.');
 });
 
-//op - 50
-
-//we can use async await here
+app.listen(5000);
