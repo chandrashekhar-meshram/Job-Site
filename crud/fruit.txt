@@ -1,2 +1,0 @@
-this is curd file and file name is apple.txt
-

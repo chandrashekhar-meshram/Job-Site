@@ -22,10 +22,13 @@ const filePath = `${dirPath}/apple.txt`;
 // op - file is updated with text added in apple.txt
 
 // Rename
-fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
-  if(!err) {
-    console.log("File name changed");
-  }
-})
+// fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
+//   if(!err) {
+//     console.log("File name changed");
+//   }
+// })
 
 // op - File name changed, now file name is fruit.txt
+
+// delete file
+fs.unlinkSync(`${dirPath}/fruit.txt`);
