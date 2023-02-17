@@ -13,11 +13,19 @@ const filePath = `${dirPath}/apple.txt`;
 //o/p - this is curd file
 
 //update file
-fs.appendFile(filePath, ' and file name is apple.txt', (err) => {
-  if(!err) {
-    console.log("file is updated");
-  }
-})
+// fs.appendFile(filePath, ' and file name is apple.txt', (err) => {
+//   if(!err) {
+//     console.log("file is updated");
+//   }
+// })
 
 // op - file is updated with text added in apple.txt
 
+// Rename
+fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
+  if(!err) {
+    console.log("File name changed");
+  }
+})
+
+// op - File name changed, now file name is fruit.txt
