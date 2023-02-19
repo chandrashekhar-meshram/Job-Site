@@ -15,7 +15,12 @@ app.get('', (_, resp) => {
 });
 
 app.get('/profile', (_, resp) => {
-  resp.render('profile');
+  const user = {
+    name: 'shekhar',
+    email: 'abc@test.com',
+    city: 'gondia',
+  };
+  resp.render('profile', { user });
 });
 
 app.get('/aboutme', (_, resp) => {
