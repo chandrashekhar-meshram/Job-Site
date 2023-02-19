@@ -12,7 +12,7 @@ app.get('', (_, resp) => {
   resp.sendFile(`${publicPath}/index.html`);
 });
 
-app.get('/about', (_, resp) => {
+app.get('/aboutme', (_, resp) => {
   resp.sendFile(`${publicPath}/about.html`);
 });
 
