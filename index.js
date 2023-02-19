@@ -11,7 +11,7 @@ const reqFilter = (req, resp, next) => {
   }
 };
 
-app.use(reqFilter);
+//app.use(reqFilter);
 
 app.get('/', (req, resp) => {
   resp.send('Welcome to Home page');
@@ -19,6 +19,10 @@ app.get('/', (req, resp) => {
 
 app.get('/users', (req, resp) => {
   resp.send('Welcome to users page');
+});
+
+app.get('/about', reqFilter, (req, resp) => {
+  resp.send('Welcome to about page');
 });
 
 app.listen(5000);
