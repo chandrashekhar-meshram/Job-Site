@@ -2,42 +2,14 @@
 // steps 1. import express, 2.execute express 3. make route with response, 4. make server
 
 const express = require('express');
-const path = require('path');
-
 const app = express();
-const publicPath = path.join(__dirname, 'public');
 
-app.set('view engine', 'ejs');
-
-//_ = req
-app.get('', (_, resp) => {
-  resp.sendFile(`${publicPath}/index.html`);
+app.get('/', (req, resp) => {
+  resp.send('Welcome to Home page');
 });
 
-app.get('/profile', (_, resp) => {
-  const user = {
-    name: 'shekhar',
-    email: 'abc@test.com',
-    city: 'gondia',
-    skills: ['php', 'js', 'java', 'node', 'express'],
-  };
-  resp.render('profile', { user });
-});
-
-app.get('/login', (_, resp) => {
-  resp.render('login');
-});
-
-app.get('/aboutme', (_, resp) => {
-  resp.sendFile(`${publicPath}/about.html`);
-});
-
-app.get('/help', (_, resp) => {
-  resp.sendFile(`${publicPath}/help.html`);
-});
-
-app.get('*', (_, resp) => {
-  resp.sendFile(`${publicPath}/pageNotFound.html`);
+app.get('/users', (req, resp) => {
+  resp.send('Wlcome to users page');
 });
 
 app.listen(5000);
