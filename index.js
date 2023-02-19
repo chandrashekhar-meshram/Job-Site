@@ -20,4 +20,8 @@ app.get('/help', (_, resp) => {
   resp.sendFile(`${publicPath}/help.html`);
 });
 
+app.get('*', (_, resp) => {
+  resp.sendFile(`${publicPath}/pageNotFound.html`);
+});
+
 app.listen(5000);
