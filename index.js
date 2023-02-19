@@ -1,15 +1,24 @@
-// how to make route(get type) using express js
-// steps 1. import express, 2.execute express 3. make route with response, 4. make server
-
 const express = require('express');
 const app = express();
+
+const reqFilter = (req, resp, next) => {
+  if (!req.query.age) {
+    resp.send('Please provide age');
+  } else if (req.query.age < 18) {
+    resp.send('You are too younger to access this page');
+  } else {
+    next();
+  }
+};
+
+app.use(reqFilter);
 
 app.get('/', (req, resp) => {
   resp.send('Welcome to Home page');
 });
 
 app.get('/users', (req, resp) => {
-  resp.send('Wlcome to users page');
+  resp.send('Welcome to users page');
 });
 
 app.listen(5000);
