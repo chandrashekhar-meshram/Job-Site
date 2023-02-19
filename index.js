@@ -19,6 +19,7 @@ app.get('/profile', (_, resp) => {
     name: 'shekhar',
     email: 'abc@test.com',
     city: 'gondia',
+    skills: ['php', 'js', 'java', 'node', 'express']
   };
   resp.render('profile', { user });
 });
