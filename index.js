@@ -3,6 +3,8 @@ const app = express();
 
 const mongoose = require('mongoose');
 
+const User = require('./users');
+
 mongoose.set('strictQuery', false);
 mongoose.set('strictQuery', true);
 
@@ -13,10 +15,12 @@ mongoose
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
-  )
-  .then(() => {
-    console.warn('db connected');
-  })
-.catch((e) => {
-  console.log('DB error ', e);
-});
+  );
+
+  User.find({}, function(err, users){
+    if(err){
+      console.log(err);
+    }
+    console.log(users);
+  });
+  
