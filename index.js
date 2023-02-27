@@ -17,10 +17,13 @@ mongoose.connect(
 );
 
 app.get('/users', function(req, res) {
-  User.find().select('name').then((data) => {
+  User.find().select('email').then((data) => {
     res.status(201).json(data);
   });
 });
 
+app.post('/user', function(req, res) {
+  res.end("Testing Post Api");
+})
 app.listen(4000);
 //console.log("Hi");
