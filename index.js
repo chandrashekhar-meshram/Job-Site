@@ -19,15 +19,29 @@ mongoose.connect(
   }
 );
 
-app.get('/users', function(req, res) {
-  User.find().select('email').then((data) => {
-    res.status(201).json(data);
-  });
+app.get('/users', function (req, res) {
+  User.find()
+    .select('email')
+    .then((data) => {
+      res.status(201).json(data);
+    });
 });
 
 //2nd parameter will be middleware
-app.post('/user', jsonParser, function(req, res) {
-  res.end(req.body.name);
-})
+app.post('/user', jsonParser, function (req, res) {
+  const data = new User({
+    _id: new mongoose.Types.ObjectId(),
+    name: req.body.name,
+    email: req.body.email,
+  });
+  data
+    .save()
+    .then((result) => {
+      res.status(201).json(result)
+    })
+    .catch((err) => {
+      console.log(err)
+    });
+});
+
 app.listen(4000);
-//console.log("Hi");
