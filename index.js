@@ -17,7 +17,7 @@ mongoose.connect(
 );
 
 app.get('/users', function(req, res) {
-  User.find().then((data) => {
+  User.find().select('name').then((data) => {
     res.status(201).json(data);
   });
 });
