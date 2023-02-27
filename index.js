@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 
 const User = require('./models/users');
 
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
+
 mongoose.set('strictQuery', false);
 mongoose.set('strictQuery', true);
 
@@ -22,8 +25,9 @@ app.get('/users', function(req, res) {
   });
 });
 
-app.post('/user', function(req, res) {
-  res.end("Testing Post Api");
+//2nd parameter will be middleware
+app.post('/user', jsonParser, function(req, res) {
+  res.end(req.body.name);
 })
 app.listen(4000);
 //console.log("Hi");
