@@ -16,10 +16,11 @@ mongoose.connect(
   }
 );
 
-app.get('/users', function (req, res) {
+app.get('/users', function(req, res) {
   User.find().then((data) => {
-    res.json(data);
+    res.status(201).json(data);
   });
 });
 
 app.listen(4000);
+//console.log("Hi");

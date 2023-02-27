@@ -7,4 +7,3 @@ let userSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('users', userSchema);
 
-//console.log("hi");
