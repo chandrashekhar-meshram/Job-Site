@@ -19,7 +19,7 @@ mongoose.connect(
   }
 );
 
-app.get('/users', function (req, res) {
+app.get('/users', function(req, res) {
   User.find()
     .select('email')
     .then((data) => {
@@ -28,7 +28,7 @@ app.get('/users', function (req, res) {
 });
 
 //2nd parameter will be middleware
-app.post('/user', jsonParser, function (req, res) {
+app.post('/user', jsonParser, function(req, res) {
   const data = new User({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -44,4 +44,18 @@ app.post('/user', jsonParser, function (req, res) {
     });
 });
 
-app.listen(4000);
+app.delete('/user/:id', function(req, res) {
+  User.deleteOne({ _id: req.params.id })
+    .then((result) => {
+      res.status(200).json(result)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+});
+
+// remove corse errror - https://www.youtube.com/watch?v=Vzn79HN8fgQ
+
+// console.log("hi");
+
+app.listen(5000);
