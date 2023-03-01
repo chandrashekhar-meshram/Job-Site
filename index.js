@@ -57,11 +57,16 @@ app.delete('/user/:id', function(req, res) {
 app.put('/user/:id', jsonParser, function(req, res){
   User.updateOne(
     {_id: req.params.id},
-    {$set: {name: req.body.name}}
+    {$set: {
+              name: req.body.name,
+              email: req.body.email
+           }
+    }
   ).then((result) => {
     res.status(200).json(result)
   }).catch((err) => {console.log(err)})
 })
+
 // console.log("hi");
 
 app.listen(5000);
