@@ -67,6 +67,20 @@ app.put('/user/:id', jsonParser, function(req, res){
   }).catch((err) => {console.log(err)})
 })
 
+// Search Api
+app.get('/search/:name', function(req, res){
+  var regex = new RegExp(req.params.name, 'i');
+  User.find(
+    {name: regex}
+  ).then((result) => {
+    res.status(200).json(result)
+  }).catch((err) => {
+    console.log(err)
+  })
+})
+
+//https://Nodejs.chandrashekha42.repl.co/search/e
+
 // console.log("hi");
 
 app.listen(5000);
